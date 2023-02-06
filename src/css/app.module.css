@@ -1,0 +1,6 @@
+#App {
+    background-image: url("../assets/images/bg-sidebar-mobile.svg");
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-color: var(--magnolia);
+}

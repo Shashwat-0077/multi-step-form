@@ -1,0 +1,55 @@
+.main {
+    background-color: white;
+    margin: 0 1em;
+    border-radius: 1em;
+    padding: 1.5em 1.5em 0.7em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.main h1 {
+    color: var(--marine-blue);
+    font-size: 25px;
+}
+
+.main p {
+    margin: 0.3em 0 1em;
+    color: var(--cool-gray);
+    font-size: 18px;
+}
+
+.main label {
+    color: var(--marine-blue);
+    display: block;
+}
+
+.main input {
+    padding: 0.5em 1em;
+    display: block;
+    border-radius: 0.2em;
+    margin-bottom: 1em;
+    width: 100%;
+    border: 1px solid var(--light-gray);
+}
+
+.main input::placeholder {
+    color: var(--cool-gray);
+}
+
+.footer {
+    position: absolute;
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    bottom: 0;
+    width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.footer button {
+    background-color: var(--marine-blue);
+    color: white;
+    border: 0;
+    border-radius: 0.3em;
+    padding: 10px 20px;
+}
