@@ -1,18 +1,25 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { setPlan } from "../state";
+
+//styles
 import styles from "../css/planPanel.module.css";
 import footerStyles from "../css/footer.module.css";
-import { Link } from "react-router-dom";
+
+//svgs
 import advancedSVG from "../assets/images/icon-advanced.svg";
 import arcadeSVG from "../assets/images/icon-arcade.svg";
 import proSVG from "../assets/images/icon-pro.svg";
 
-const PlanPanel = () => {
+const PlanPanel = (props) => {
     // if monthly then true , if yearly then false
     const [planPeriod, setPlanPeriod] = useState(true);
+    const { plan, setPlan } = props;
 
     return (
         <div>
-            <div className={`${styles.main}`}>
+            <div className={styles.main}>
                 <h1>Select your plan</h1>
                 <p className={styles.description}>
                     You have the option of monthly or yearly blling
@@ -23,7 +30,10 @@ const PlanPanel = () => {
                         !planPeriod ? styles.expand : ""
                     }`}
                 >
-                    <div>
+                    <div
+                        className={plan === "arcade" ? styles.selected : ""}
+                        onClick={() => setPlan("arcade")}
+                    >
                         <img
                             src={arcadeSVG}
                             alt="..."
@@ -44,7 +54,10 @@ const PlanPanel = () => {
                             </p>
                         </div>
                     </div>
-                    <div>
+                    <div
+                        className={plan === "advanced" ? styles.selected : ""}
+                        onClick={() => setPlan("advanced")}
+                    >
                         <img
                             src={advancedSVG}
                             alt=""
@@ -65,7 +78,10 @@ const PlanPanel = () => {
                             </p>
                         </div>
                     </div>
-                    <div>
+                    <div
+                        className={plan === "pro" ? styles.selected : ""}
+                        onClick={() => setPlan("pro")}
+                    >
                         <img src={proSVG} alt="" className={styles.image} />
                         <div>
                             <p className={styles.heading}>Pro</p>
@@ -107,4 +123,16 @@ const PlanPanel = () => {
     );
 };
 
-export default PlanPanel;
+const mapStateToProps = (state) => {
+    return {
+        plan: state.plan,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setPlan: (plan) => dispatch(setPlan(plan)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlanPanel);

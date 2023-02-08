@@ -18,14 +18,16 @@
 html,
 body {
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 /*
   Typographic tweaks!
   4. Add accessible line-height
   5. Improve text rendering
-*/
+  */
 body {
+    box-sizing: auto;
+    background-color: var(--magnolia);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }

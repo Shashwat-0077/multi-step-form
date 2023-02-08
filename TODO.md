@@ -6,7 +6,7 @@ Project Description
 
 ### Todo
 
-- add on form  
+- Seprate Footer  
 - finishing up details  
 - Desktop View😊  
 - Built Basic Template  
@@ -18,10 +18,11 @@ Project Description
 ### In Progress
 
 - Phone View😊  
-- Plan form  
+- add on form  
 
 ### Done ✓
 
-- personal info form (functional)  
 - Built Basic Template  
+- Plan form  
+- personal info form (functional)  
 

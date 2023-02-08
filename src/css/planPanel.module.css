@@ -4,6 +4,7 @@
     border-radius: 1em;
     padding: 1.5em 1.5em 0.7em;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 80px; /*Navbar height*/
 }
 
 .main h1 {
@@ -34,7 +35,11 @@
     gap: 5%;
 }
 
-.planSelector > div:focus-visible {
+.planSelector > div:hover {
+    border-color: var(--purplish-blue);
+}
+
+.planSelector > div.selected {
     background-color: var(--magnolia);
     border-color: var(--purplish-blue);
 }

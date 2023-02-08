@@ -4,6 +4,7 @@
     border-radius: 1em;
     padding: 1.5em 1.5em 0.7em;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 80px; /*Navbar height*/
 }
 
 .main h1 {
@@ -11,45 +12,46 @@
     font-size: 25px;
 }
 
-.main p {
+.main > p {
     margin: 0.3em 0 1em;
     color: var(--cool-gray);
     font-size: 18px;
 }
 
+.main .messages {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main .messages .error {
+    margin: 0;
+    color: var(--strawberry-red);
+    font-size: 14px;
+    font-weight: 700;
+}
+
 .main label {
     color: var(--marine-blue);
-    display: block;
 }
 
 .main input {
     padding: 0.5em 1em;
     display: block;
-    border-radius: 0.2em;
+    border-radius: 0.5em;
     margin-bottom: 1em;
     width: 100%;
     border: 1px solid var(--light-gray);
+    cursor: pointer;
+}
+
+.main input:focus {
+    outline: 1.5px solid var(--purplish-blue);
+}
+
+.main input.invalidInput {
+    outline: 1.5px solid var(--strawberry-red);
 }
 
 .main input::placeholder {
     color: var(--cool-gray);
-}
-
-.footer {
-    position: absolute;
-    background-color: white;
-    display: flex;
-    justify-content: flex-end;
-    padding: 1em;
-    bottom: 0;
-    width: 100%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.footer button {
-    background-color: var(--marine-blue);
-    color: white;
-    border: 0;
-    border-radius: 0.3em;
-    padding: 10px 20px;
 }
