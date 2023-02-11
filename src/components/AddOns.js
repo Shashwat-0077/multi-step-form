@@ -14,8 +14,13 @@ const AddOns = (props) => {
     const LARGER_STORAGE = "LARGER_STORAGE";
     const CUST_PROFILE = "CUST_PROFILE";
 
-    const { addOns, setOnlineService, setLargerStorage, setCustProfile } =
-        props;
+    const {
+        addOns,
+        setOnlineService,
+        setLargerStorage,
+        setCustProfile,
+        planPeriod,
+    } = props;
 
     const handleOnClick = (e) => {
         switch (e.target.id) {
@@ -61,7 +66,7 @@ const AddOns = (props) => {
                             </p>
                         </div>
                         <div className={styles.price}>
-                            <p>+1/mo</p>
+                            <p>{planPeriod ? "+1/mo" : "+10/yr"}</p>
                         </div>
                     </button>
                     <button
@@ -83,7 +88,7 @@ const AddOns = (props) => {
                             </p>
                         </div>
                         <div className={styles.price}>
-                            <p>+2/mo</p>
+                            <p>{planPeriod ? "+2/mo" : "+20/yr"}</p>
                         </div>
                     </button>
                     <button
@@ -107,7 +112,7 @@ const AddOns = (props) => {
                             </p>
                         </div>
                         <div className={styles.price}>
-                            <p>+2/mo</p>
+                            <p>{planPeriod ? "+2/mo" : "+20/yr"}</p>
                         </div>
                     </button>
                 </div>
@@ -125,6 +130,7 @@ const AddOns = (props) => {
 const mapStateToProps = (state) => {
     return {
         addOns: state.addOns,
+        planPeriod: state.plan.planPeriod,
     };
 };
 

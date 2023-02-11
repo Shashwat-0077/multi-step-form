@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { setPlan } from "../state";
+import { setPlan, setPlanPeriod } from "../state";
 
 //styles
 import styles from "../css/planPanel.module.css";
@@ -13,9 +12,8 @@ import arcadeSVG from "../assets/images/icon-arcade.svg";
 import proSVG from "../assets/images/icon-pro.svg";
 
 const PlanPanel = (props) => {
-    // if monthly then true , if yearly then false
-    const [planPeriod, setPlanPeriod] = useState(true);
-    const { plan, setPlan } = props;
+    const { state, setPlan, setPlanPeriod } = props;
+    const { plan, planPeriod } = state;
 
     return (
         <div>
@@ -106,6 +104,7 @@ const PlanPanel = (props) => {
                         <input
                             type="checkbox"
                             name="planPeriod"
+                            checked={!planPeriod}
                             onChange={() => setPlanPeriod(!planPeriod)}
                         />
                         <span className={styles.slider}></span>
@@ -125,13 +124,14 @@ const PlanPanel = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        plan: state.plan,
+        state: state.plan,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         setPlan: (plan) => dispatch(setPlan(plan)),
+        setPlanPeriod: (planPeriod) => dispatch(setPlanPeriod(planPeriod)),
     };
 };
 
