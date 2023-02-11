@@ -4,7 +4,7 @@ import {
     SET_ONLINE_SERVICE,
 } from "./types";
 
-export const setOnlineService = (input) => {
+export const setOnlineService = (input = false) => {
     return (dispatch) => {
         dispatch({
             type: SET_ONLINE_SERVICE,
@@ -13,7 +13,7 @@ export const setOnlineService = (input) => {
     };
 };
 
-export const setLargerStorage = (input) => {
+export const setLargerStorage = (input = false) => {
     return (dispatch) => {
         dispatch({
             type: SET_LARGER_STORAGE,
@@ -22,7 +22,7 @@ export const setLargerStorage = (input) => {
     };
 };
 
-export const setCustProfile = (input) => {
+export const setCustProfile = (input = false) => {
     return (dispatch) => {
         dispatch({
             type: SET_CUSTOMIZABLE_PROFILE,

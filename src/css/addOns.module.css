@@ -26,22 +26,29 @@
 }
 
 .addOn {
-    border: 1px solid var(--purplish-blue);
+    border: 1px solid var(--light-gray);
     display: grid;
     grid-template-columns: 0.2fr 1fr 0.3fr;
     border-radius: 0.5em;
-    padding: 0.5em;
-    column-gap: 2%;
+    padding: 0.7em 0.5em;
+    column-gap: 4%;
+    align-items: stretch;
+    text-align: left;
+    background-color: white;
+}
+
+.addOn * {
+    pointer-events: none;
 }
 
 .addOn .heading {
     color: var(--marine-blue);
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .addOn .desc {
-    font-size: 13px;
+    font-size: 12px;
 }
 .addOn .price {
     font-size: 14px;
@@ -55,28 +62,26 @@
     align-items: center;
 }
 
-/* TODO : Fix the label */
+/* TODO : Apply animation to checkBox */
 
-.addOn .checkBox input[type="checkbox"] {
-    opacity: 0;
-    transform: scale(0);
-    appearance: none;
+.addOn.active {
+    background-color: var(--alabaster);
+    border-color: var(--purplish-blue);
 }
 
-.addOn .checkBox label {
-    border: 1px solid var(--cool-gray);
-    border-radius: 0.2rem;
-    position: relative;
-    display: grid;
-    padding: 10px;
+.checkBox div {
     font-size: 0;
+    padding: 0.2rem 0.2rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--cool-gray);
 }
 
-.addOn .checkBox label p {
-    width: 100%;
-    text-align: center;
-    font-weight: 700;
-    color: white;
-    position: absolute;
+.addOn.active .checkBox div {
+    background-color: var(--purplish-blue);
+    border-color: var(--purplish-blue);
+}
+
+.checkBox div i {
     font-size: 14px;
+    color: white;
 }

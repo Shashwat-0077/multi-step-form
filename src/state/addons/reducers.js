@@ -10,19 +10,19 @@ export const addOnReducer = (state = initialState, action) => {
         case SET_ONLINE_SERVICE:
             return {
                 ...state,
-                online_service: action.playload,
+                online_service: action.payload,
             };
 
         case SET_LARGER_STORAGE:
             return {
                 ...state,
-                larger_storage: action.playload,
+                larger_storage: action.payload,
             };
 
         case SET_CUSTOMIZABLE_PROFILE:
             return {
                 ...state,
-                cust_profile: action.playload,
+                cust_profile: action.payload,
             };
 
         default:

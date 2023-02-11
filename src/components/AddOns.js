@@ -2,7 +2,37 @@ import styles from "../css/addOns.module.css";
 import footerStyles from "../css/footer.module.css";
 import { Link } from "react-router-dom";
 
-const AddOns = () => {
+import {
+    setLargerStorage,
+    setOnlineService,
+    setCustProfile,
+} from "../state/addons/actionCreaters";
+import { connect } from "react-redux";
+
+const AddOns = (props) => {
+    const ONLINE_SERVICE = "ONLINE_SERVICE";
+    const LARGER_STORAGE = "LARGER_STORAGE";
+    const CUST_PROFILE = "CUST_PROFILE";
+
+    const { addOns, setOnlineService, setLargerStorage, setCustProfile } =
+        props;
+
+    const handleOnClick = (e) => {
+        switch (e.target.id) {
+            case ONLINE_SERVICE:
+                setOnlineService(!addOns.online_service);
+                break;
+            case LARGER_STORAGE:
+                setLargerStorage(!addOns.larger_storage);
+                break;
+            case CUST_PROFILE:
+                setCustProfile(!addOns.cust_profile);
+                break;
+            default:
+                break;
+        }
+    };
+
     return (
         <div>
             <div className={styles.main}>
@@ -12,16 +42,17 @@ const AddOns = () => {
                 </p>
 
                 <div className={styles.addOns}>
-                    <div className={styles.addOn}>
+                    <button
+                        className={`${styles.addOn} ${
+                            addOns.online_service ? styles.active : ""
+                        }`}
+                        id={ONLINE_SERVICE}
+                        onClick={handleOnClick}
+                    >
                         <div className={styles.checkBox}>
-                            <label htmlFor="online-service">
-                                <input
-                                    type="checkbox"
-                                    name="online-service"
-                                    id="online-service"
-                                />
-                                <p>&#10003;</p>
-                            </label>
+                            <div>
+                                <i className="fa-solid fa-check"></i>
+                            </div>
                         </div>
                         <div className={styles.content}>
                             <p className={styles.heading}>Online service</p>
@@ -32,17 +63,18 @@ const AddOns = () => {
                         <div className={styles.price}>
                             <p>+1/mo</p>
                         </div>
-                    </div>
-                    <div className={styles.addOn}>
+                    </button>
+                    <button
+                        className={`${styles.addOn} ${
+                            addOns.larger_storage ? styles.active : ""
+                        }`}
+                        id={LARGER_STORAGE}
+                        onClick={handleOnClick}
+                    >
                         <div className={styles.checkBox}>
-                            <label htmlFor="larger-storage">
-                                <input
-                                    type="checkbox"
-                                    name="larger-storage"
-                                    id="larger-storage"
-                                />
-                                <p>&#10003;</p>
-                            </label>
+                            <div>
+                                <i className="fa-solid fa-check"></i>
+                            </div>
                         </div>
                         <div className={styles.content}>
                             <p className={styles.heading}>Larger Storage</p>
@@ -53,17 +85,18 @@ const AddOns = () => {
                         <div className={styles.price}>
                             <p>+2/mo</p>
                         </div>
-                    </div>
-                    <div className={styles.addOn}>
+                    </button>
+                    <button
+                        className={`${styles.addOn} ${
+                            addOns.cust_profile ? styles.active : ""
+                        }`}
+                        id={CUST_PROFILE}
+                        onClick={handleOnClick}
+                    >
                         <div className={styles.checkBox}>
-                            <label htmlFor="cust-profile">
-                                <input
-                                    type="checkbox"
-                                    name="cust-profile"
-                                    id="cust-profile"
-                                />
-                                <p>&#10003;</p>
-                            </label>
+                            <div>
+                                <i className="fa-solid fa-check"></i>
+                            </div>
                         </div>
                         <div className={styles.content}>
                             <p className={styles.heading}>
@@ -76,7 +109,7 @@ const AddOns = () => {
                         <div className={styles.price}>
                             <p>+2/mo</p>
                         </div>
-                    </div>
+                    </button>
                 </div>
             </div>
             <footer className={footerStyles.footer}>
@@ -89,4 +122,18 @@ const AddOns = () => {
     );
 };
 
-export default AddOns;
+const mapStateToProps = (state) => {
+    return {
+        addOns: state.addOns,
+    };
+};
+
+const mapDispatchToPorps = (dispatch) => {
+    return {
+        setOnlineService: (inp) => dispatch(setOnlineService(inp)),
+        setLargerStorage: (inp) => dispatch(setLargerStorage(inp)),
+        setCustProfile: (inp) => dispatch(setCustProfile(inp)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToPorps)(AddOns);
