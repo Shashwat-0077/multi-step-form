@@ -1,6 +1,4 @@
 import styles from "../css/addOns.module.css";
-import footerStyles from "../css/footer.module.css";
-import { Link } from "react-router-dom";
 
 import {
     setLargerStorage,
@@ -117,12 +115,6 @@ const AddOns = (props) => {
                     </button>
                 </div>
             </div>
-            <footer className={footerStyles.footer}>
-                <Link className={footerStyles.goBack} to="/">
-                    Go Back
-                </Link>
-                <button>Next Step</button>
-            </footer>
         </div>
     );
 };
@@ -130,7 +122,7 @@ const AddOns = (props) => {
 const mapStateToProps = (state) => {
     return {
         addOns: state.addOns,
-        planPeriod: state.plan.planPeriod,
+        planPeriod: state.plan.period,
     };
 };
 

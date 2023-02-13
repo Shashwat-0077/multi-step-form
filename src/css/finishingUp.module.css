@@ -1,0 +1,80 @@
+.main {
+    background-color: white;
+    margin: 0 1em;
+    border-radius: 1em;
+    padding: 1.5em 1.5em 0.7em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding-bottom: 2rem;
+    margin-bottom: 0.5em;
+}
+
+.main h1 {
+    color: var(--marine-blue);
+    font-size: 25px;
+}
+
+.main .description {
+    padding-top: 0.5rem;
+    margin: 0em 0 1em;
+    color: var(--cool-gray);
+    font-size: 17px;
+}
+
+/* ------------Details-------------- */
+
+.planAndAddOns {
+    background-color: var(--alabaster);
+    padding: 1em;
+    border-radius: 0.5em;
+    font-size: 15px;
+}
+
+.planAndAddOns .bar {
+    border: 0.5px solid var(--light-gray);
+}
+
+/* ------------Plan-------------- */
+
+.plan {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: var(--marine-blue);
+    margin-bottom: 1em;
+}
+
+.plan .details .link {
+    color: var(--cool-gray);
+    font-weight: 400;
+}
+
+/* ----------add-ons----------- */
+
+.addOns > div {
+    display: flex;
+    justify-content: space-between;
+    color: var(--cool-gray);
+    margin-top: 0.75em;
+}
+
+.addOns .price {
+    color: var(--marine-blue);
+}
+
+/* ------------total--------------- */
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 1em 0.5em;
+    font-size: 15px;
+}
+
+.total .total_tag {
+    color: var(--cool-gray);
+}
+
+.total .price {
+    color: var(--purplish-blue);
+    font-weight: 700;
+}

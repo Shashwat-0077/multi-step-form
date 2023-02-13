@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setPlan, setPlanPeriod } from "../state";
 
 //styles
 import styles from "../css/planPanel.module.css";
-import footerStyles from "../css/footer.module.css";
 
 //svgs
 import advancedSVG from "../assets/images/icon-advanced.svg";
@@ -12,8 +10,8 @@ import arcadeSVG from "../assets/images/icon-arcade.svg";
 import proSVG from "../assets/images/icon-pro.svg";
 
 const PlanPanel = (props) => {
-    const { state, setPlan, setPlanPeriod } = props;
-    const { plan, planPeriod } = state;
+    const { plan, setPlan, setPlanPeriod } = props;
+    const { type, period } = plan;
 
     return (
         <div>
@@ -25,11 +23,11 @@ const PlanPanel = (props) => {
 
                 <div
                     className={`${styles.planSelector} ${
-                        !planPeriod ? styles.expand : ""
+                        !period ? styles.expand : ""
                     }`}
                 >
                     <div
-                        className={plan === "arcade" ? styles.selected : ""}
+                        className={type === "arcade" ? styles.selected : ""}
                         onClick={() => setPlan("arcade")}
                     >
                         <img
@@ -40,12 +38,11 @@ const PlanPanel = (props) => {
                         <div>
                             <p className={styles.heading}>Arcade</p>
                             <p className={styles.price}>
-                                ${planPeriod ? "9" : "90"}/
-                                {planPeriod ? "mo" : "yr"}
+                                ${period ? "9" : "90"}/{period ? "mo" : "yr"}
                             </p>
                             <p
                                 className={`${
-                                    !planPeriod ? styles.free : styles.hide
+                                    !period ? styles.free : styles.hide
                                 }`}
                             >
                                 2 months free
@@ -53,7 +50,7 @@ const PlanPanel = (props) => {
                         </div>
                     </div>
                     <div
-                        className={plan === "advanced" ? styles.selected : ""}
+                        className={type === "advanced" ? styles.selected : ""}
                         onClick={() => setPlan("advanced")}
                     >
                         <img
@@ -64,12 +61,11 @@ const PlanPanel = (props) => {
                         <div>
                             <p className={styles.heading}>Advanced</p>
                             <p className={styles.price}>
-                                ${planPeriod ? "12" : "120"}/
-                                {planPeriod ? "mo" : "yr"}
+                                ${period ? "12" : "120"}/{period ? "mo" : "yr"}
                             </p>
                             <p
                                 className={`${styles.free} ${
-                                    planPeriod ? styles.hide : ""
+                                    period ? styles.hide : ""
                                 }`}
                             >
                                 2 months free
@@ -77,19 +73,18 @@ const PlanPanel = (props) => {
                         </div>
                     </div>
                     <div
-                        className={plan === "pro" ? styles.selected : ""}
+                        className={type === "pro" ? styles.selected : ""}
                         onClick={() => setPlan("pro")}
                     >
                         <img src={proSVG} alt="" className={styles.image} />
                         <div>
                             <p className={styles.heading}>Pro</p>
                             <p className={styles.price}>
-                                ${planPeriod ? "15" : "150"}/
-                                {planPeriod ? "mo" : "yr"}
+                                ${period ? "15" : "150"}/{period ? "mo" : "yr"}
                             </p>
                             <p
                                 className={`${
-                                    !planPeriod ? styles.free : styles.hide
+                                    !period ? styles.free : styles.hide
                                 }`}
                             >
                                 2 months free
@@ -104,27 +99,21 @@ const PlanPanel = (props) => {
                         <input
                             type="checkbox"
                             name="planPeriod"
-                            checked={!planPeriod}
-                            onChange={() => setPlanPeriod(!planPeriod)}
+                            checked={!period}
+                            onChange={() => setPlanPeriod(!period)}
                         />
                         <span className={styles.slider}></span>
                     </label>
                     <p>Yearly</p>
                 </div>
             </div>
-            <footer className={footerStyles.footer}>
-                <Link className={footerStyles.goBack} to="/">
-                    Go Back
-                </Link>
-                <button>Next Step</button>
-            </footer>
         </div>
     );
 };
 
 const mapStateToProps = (state) => {
     return {
-        state: state.plan,
+        plan: state.plan,
     };
 };
 

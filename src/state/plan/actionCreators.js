@@ -1,19 +1,19 @@
 import { SET_PLAN, SET_PLAN_PERIOD } from "./types";
 
-export const setPlan = (plan = "") => {
+export const setPlan = (type = "") => {
     return (dispatch) => {
         dispatch({
             type: SET_PLAN,
-            payload: plan,
+            payload: type,
         });
     };
 };
 
-export const setPlanPeriod = (planPeriod = true) => {
+export const setPlanPeriod = (period = true) => {
     return (dispatch) => {
         dispatch({
             type: SET_PLAN_PERIOD,
-            payload: planPeriod,
+            payload: period,
         });
     };
 };

@@ -5,12 +5,12 @@ export const planReducer = (state = initialState, action) => {
         case SET_PLAN:
             return {
                 ...state,
-                plan: action.payload,
+                type: action.payload,
             };
         case SET_PLAN_PERIOD:
             return {
                 ...state,
-                planPeriod: action.payload,
+                period: action.payload,
             };
         default:
             return state;

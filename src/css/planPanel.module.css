@@ -4,7 +4,7 @@
     border-radius: 1em;
     padding: 1.5em 1.5em 0.7em;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    margin-bottom: 80px; /*Navbar height*/
+    margin-bottom: 0.5em;
 }
 
 .main h1 {
