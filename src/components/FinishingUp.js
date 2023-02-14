@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "../css/finishingUp.module.css";
+import captalize from "../utils/capitalize";
 
 const FinishingUp = (props) => {
     const { plan, addOns } = props;
@@ -28,10 +29,6 @@ const FinishingUp = (props) => {
     if (addOns.cust_profile) {
         price.addOns += 2 * multipler;
     }
-
-    const captalize = (value) => {
-        return value[0].toUpperCase() + value.slice(1);
-    };
 
     return (
         <div>

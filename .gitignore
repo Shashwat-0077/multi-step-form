@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/test
 
 # production
 /build
@@ -23,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 #design
-/designs
+designs/

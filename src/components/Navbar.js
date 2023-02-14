@@ -37,7 +37,9 @@ const Navbar = () => {
             <Link
                 to={"/finishing-up"}
                 className={`${styles.nav_item} ${
-                    path === "/finishing-up" ? styles.active : ""
+                    path === "/finishing-up" || path === "/thank-you"
+                        ? styles.active
+                        : ""
                 }`}
             >
                 4

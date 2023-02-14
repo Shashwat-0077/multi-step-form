@@ -2,56 +2,27 @@ import { useLocation } from "react-router";
 import styles from "../css/footer.module.css";
 import { useNavigate } from "react-router-dom";
 import { setEmailError, setNameError, setPhoneError } from "../state";
+import validateForm from "../utils/validateForm";
 import { connect } from "react-redux";
-import { useState } from "react";
 
 const Footer = (props) => {
     const location = useLocation();
     const navigate = useNavigate();
     const { creds, setEmailError, setNameError, setPhoneError } = props;
 
-    const validateForm = () => {
-        let doesErrorOccured = false;
-        const emailRegEx =
-            /^[a-zA-Z0-9.!#$%&`*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        const phoneRegEx = /^[0-9]{10}$/;
-        const nameRegEx = /^[a-zA-Z ]+$/;
-
-        const { name, email, phone } = creds;
-
-        if (!name) {
-            setNameError("This feild is required");
-            doesErrorOccured = true;
-        } else if (!nameRegEx.test(name)) {
-            setNameError("Invalid Input");
-            doesErrorOccured = true;
-        }
-
-        if (!email) {
-            setEmailError("This feild is required");
-            doesErrorOccured = true;
-        } else if (!emailRegEx.test(email)) {
-            setEmailError("Invalid Input");
-            doesErrorOccured = true;
-        }
-
-        if (!phone) {
-            setPhoneError("This feild is required");
-            doesErrorOccured = true;
-        } else if (!phoneRegEx.test(phone)) {
-            setPhoneError("Invalid Input");
-            doesErrorOccured = true;
-        }
-
-        return !doesErrorOccured;
-    };
-
     const handleOnClick = (e) => {
         e.preventDefault();
 
         switch (location.pathname) {
             case "/":
-                if (validateForm()) {
+                if (
+                    validateForm(
+                        creds,
+                        setNameError,
+                        setEmailError,
+                        setPhoneError
+                    )
+                ) {
                     navigate("/select-plan");
                 }
                 break;
@@ -65,9 +36,7 @@ const Footer = (props) => {
                 break;
 
             case "/finishing-up":
-                if (!validateForm()) {
-                    navigate("/");
-                }
+                navigate("/thank-you");
                 break;
 
             default:
@@ -96,7 +65,9 @@ const Footer = (props) => {
         }
     };
 
-    return (
+    return location.pathname === "/thank-you" ? (
+        ""
+    ) : (
         <footer className={styles.footer}>
             <button
                 onClick={handleGoBack}
