@@ -12,7 +12,7 @@ const ThankYou = (props) => {
 
     useEffect(() => {
         if (!validateForm(creds, setNameError, setEmailError, setPhoneError)) {
-            navigate("/");
+            navigate("/multi-step-form");
         }
     });
 

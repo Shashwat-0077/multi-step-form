@@ -14,7 +14,7 @@ const Footer = (props) => {
         e.preventDefault();
 
         switch (location.pathname) {
-            case "/":
+            case "/multi-step-form":
                 if (
                     validateForm(
                         creds,
@@ -49,7 +49,7 @@ const Footer = (props) => {
 
         switch (location.pathname) {
             case "/select-plan":
-                navigate("/");
+                navigate("/multi-step-form");
                 break;
 
             case "/add-ons":

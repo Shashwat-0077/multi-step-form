@@ -11,9 +11,9 @@ const Navbar = () => {
     return (
         <div className={styles.nav}>
             <Link
-                to={"/"}
+                to={"/multi-step-form"}
                 className={`${styles.nav_item} ${
-                    path === "/" ? styles.active : ""
+                    path === "/multi-step-form" ? styles.active : ""
                 }`}
             >
                 1

@@ -13,7 +13,11 @@ function App() {
         <div id={styles.App}>
             <Navbar />
             <Routes>
-                <Route exact path="/" element={<PersonalInfo />} />
+                <Route
+                    exact
+                    path="/multi-step-form"
+                    element={<PersonalInfo />}
+                />
                 <Route exact path="/select-plan" element={<PlanPanel />} />
                 <Route exact path="/add-ons" element={<AddOns />} />
                 <Route exact path="/finishing-up" element={<FinishingUp />} />
