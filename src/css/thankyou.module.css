@@ -33,3 +33,24 @@
     width: 60px;
     margin-bottom: 0.5em;
 }
+
+@media only screen and (min-width: 750px) {
+    .main {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main h1 {
+        font-size: 35px;
+    }
+
+    .main > p {
+        padding: 0 2em;
+        margin: 0 0 2em 0;
+    }
+
+    .main label {
+        margin-bottom: 0.3em;
+    }
+}

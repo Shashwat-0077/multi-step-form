@@ -78,3 +78,32 @@
     color: var(--purplish-blue);
     font-weight: 700;
 }
+
+@media only screen and (min-width: 750px) {
+    .main {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main h1 {
+        font-size: 35px;
+    }
+
+    .main .description {
+        padding: 0;
+        margin: 0 0 2em 0;
+    }
+
+    .addOns > div {
+        margin: 1em 0;
+    }
+
+    .addOns > div:last-of-type {
+        margin-bottom: 0.2em;
+    }
+
+    .total {
+        padding-top: 1.2em;
+    }
+}

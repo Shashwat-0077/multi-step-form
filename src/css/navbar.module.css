@@ -1,12 +1,17 @@
 .nav {
     display: flex;
-    justify-content: center;
     padding: 2.1em 0 1.7em;
     padding: 8.4% 0;
+    justify-content: center;
     gap: 3%;
 }
 
 .nav_item {
+    display: flex;
+    justify-content: center;
+}
+
+.nav_item .link {
     border: 1px solid var(--white);
     border-radius: 50%;
     padding: 0.625em 1.09375em;
@@ -20,8 +25,58 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.nav_item.active {
+.nav_item .link.active {
     background-color: var(--light-blue);
     border-color: var(--light-blue);
     color: black;
+}
+
+.decription {
+    display: none;
+}
+
+@media only screen and (min-width: 750px) {
+    .nav {
+        background-image: url("../assets/images/bg-sidebar-desktop.svg");
+        flex-basis: 25%;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-repeat: no-repeat;
+        padding: 2em 0 0 2em;
+        flex-basis: 274px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        min-height: 568px;
+    }
+
+    .nav_item {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5%;
+        padding-bottom: 1.5em;
+    }
+
+    .nav_item .link {
+        font-size: 13px;
+    }
+
+    .decription {
+        display: block;
+    }
+
+    .decription .stepHeading {
+        color: var(--cool-gray);
+        font-size: 10px;
+        line-height: 1.2;
+        font-weight: 500;
+    }
+
+    .decription .stepInfo {
+        color: var(--light-gray);
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
 }

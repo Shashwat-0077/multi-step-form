@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import AddOns from "./components/AddOns";
 import FinishingUp from "./components/FinishingUp";
 import Footer from "./components/Footer";
@@ -9,21 +9,39 @@ import ThankYou from "./components/ThankYou";
 import styles from "./css/app.module.css";
 
 function App() {
+    const location = useLocation();
+
     return (
         <div id={styles.App}>
             <Navbar />
-            <Routes>
-                <Route
-                    exact
-                    path="/multi-step-form"
-                    element={<PersonalInfo />}
-                />
-                <Route exact path="/select-plan" element={<PlanPanel />} />
-                <Route exact path="/add-ons" element={<AddOns />} />
-                <Route exact path="/finishing-up" element={<FinishingUp />} />
-                <Route exact path="/thank-you" element={<ThankYou />} />
-            </Routes>
-            <Footer />
+            <div
+                className={styles.contentAndFooter}
+                // cant find a way to do this in another way
+                style={
+                    location.pathname === "/thank-you"
+                        ? {
+                              justifyContent: "center",
+                          }
+                        : {}
+                }
+            >
+                <Routes>
+                    <Route
+                        exact
+                        path="/multi-step-form"
+                        element={<PersonalInfo />}
+                    />
+                    <Route exact path="/select-plan" element={<PlanPanel />} />
+                    <Route exact path="/add-ons" element={<AddOns />} />
+                    <Route
+                        exact
+                        path="/finishing-up"
+                        element={<FinishingUp />}
+                    />
+                    <Route exact path="/thank-you" element={<ThankYou />} />
+                </Routes>
+                <Footer />
+            </div>
         </div>
     );
 }

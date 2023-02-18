@@ -32,6 +32,7 @@
 
 .main label {
     color: var(--marine-blue);
+    font-weight: 400;
 }
 
 .main input {
@@ -54,4 +55,25 @@
 
 .main input::placeholder {
     color: var(--cool-gray);
+    font-weight: 500;
+}
+
+@media only screen and (min-width: 750px) {
+    .main {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main h1 {
+        font-size: 35px;
+    }
+
+    .main > p {
+        margin: 0 0 2em 0;
+    }
+
+    .main label {
+        margin-bottom: 0.3em;
+    }
 }

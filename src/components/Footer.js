@@ -72,7 +72,7 @@ const Footer = (props) => {
             <button
                 onClick={handleGoBack}
                 className={`${styles.goBack} ${
-                    location.pathname === "/" ? styles.hide : ""
+                    location.pathname === "/multi-step-form" ? styles.hide : ""
                 }`}
             >
                 Go Back

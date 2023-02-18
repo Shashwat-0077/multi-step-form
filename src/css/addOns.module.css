@@ -85,3 +85,29 @@
     font-size: 14px;
     color: white;
 }
+
+@media only screen and (min-width: 750px) {
+    .main {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main h1 {
+        font-size: 35px;
+        margin-bottom: 5px;
+    }
+
+    .main .description {
+        margin: 0 0 2.3em 0;
+    }
+
+    .addOns {
+        gap: 1em;
+    }
+
+    .addOn {
+        grid-template-columns: 5% auto 15%;
+        padding: 1em;
+    }
+}

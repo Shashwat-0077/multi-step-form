@@ -2,7 +2,11 @@ const validateForm = (creds, setNameError, setEmailError, setPhoneError) => {
     let doesErrorOccured = false;
     const emailRegEx =
         /^[a-zA-Z0-9.!#$%&`*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const phoneRegEx = /^[0-9]{10}$/;
+
+    const phoneRegEx =
+        //eslint-disable-next-line
+        /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+
     const nameRegEx = /^[a-zA-Z ]+$/;
 
     if (!creds.name) {
